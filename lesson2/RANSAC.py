@@ -1,3 +1,5 @@
+import random
+
 #random sample consensus
 """
     参考：https://blog.csdn.net/vict_wang/article/details/81027730
@@ -10,12 +12,12 @@
         t - 阈值:作为判断点满足模型的条件
         d - 拟合较好时,需要的样本点最少的个数,当做阈值看待
     输出:
-        bestfit - 最优拟合解（返回nil,如果未找到）
+        bestfit - 最优拟合解（返回None,如果未找到）
 
     #遍历次数
     iterations = 0
     #最优解记录
-    bestfit = nil
+    bestfit = None
     #最优解误差
     besterr = something really large(取一极大值)
     while iterations < k:
@@ -38,7 +40,13 @@
 
     """
 def ransacMatching(A, B):
-    # A & B: List of List
+    # A & B: List of List  = [[1,2],[2,3]] ?
+
+    A_size = len(A)
+    B_size = len(B)
+    A_inline = random.sample(A, 4)
+    B_inline = random.sample(B, 4)
+    #计算4个点的模型
 
     return
 
