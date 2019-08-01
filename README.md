@@ -7,3 +7,6 @@
 ## lesson 2：
   1. medianBlur.py 以及 示例图片<br/>
   2. RANSAC算法未完成<br/>
+
+## lesson 3：
+  1. LogisticRegression 有点问题，训练到一半loss会nan,此时loss一般只能到0.08左右
