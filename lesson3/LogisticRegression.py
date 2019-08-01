@@ -1,6 +1,6 @@
 import numpy as np
 import random
-
+from sklearn.preprocessing import normalize
 
 def inference(w, x):
     pred_y = 1 / (1 + np.exp(0 - w * x))
@@ -44,8 +44,6 @@ def train(x_list, y_list, batch_size, lr, max_iter):
         batch_y = [y_list[j] for j in batch_idxs]
         w = cal_step_gradient(batch_x, batch_y, w, lr)
         loss = eval_loss(w, x_list, y_list)
-        if loss <= 0.05:
-            break
         print('w:{0}'.format(w))
         print('loss is {0}'.format(loss))
 
@@ -56,17 +54,21 @@ def gen_sample_data():
     x_list = []
     y_list = []
     for i in range(num_samples):
-        x = random.randint(-100, 100) * random.random()
-        y = np.power((1 + np.exp(0 - w * x)), -1)
+        x = random.randint(-50, 50) * random.random()
+        y = np.power((1 + np.exp(- w * x)), -1)
         x_list.append(x)
         y_list.append(y)
+
+    x_list_a = np.array(x_list).reshape(1, -1)
+    print(x_list_a)
+    print(normalize(x_list_a))
     return x_list, y_list, w
 
 
 def run():
     x_list, y_list, w = gen_sample_data()
     lr = 0.001
-    max_iter = 2000
+    max_iter = 5000
     train(x_list, y_list, 50, lr, max_iter)
 
 
