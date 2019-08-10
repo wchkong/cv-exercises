@@ -10,3 +10,6 @@
 
 ## lesson 3：
   1. LogisticRegression 有点问题，训练到一半loss会nan,此时loss一般只能到0.08左右
+
+## lesson 5：
+  1. k-means++ 完成
